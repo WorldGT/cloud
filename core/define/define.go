@@ -20,9 +20,9 @@ var CodeLength = 6
 var CodeExpire = 300
 
 // TencentSecretKey 腾讯云对象存储
-var TencentSecretKey = "uhO1Y2Rky7DEB2BteREziLrGZmt0695v"
-var TencentSecretID = "AKIDhTCoHyACGEGIGBxjR9nEcyMMm4JVehjh"
-var CosBucket = "https://1-1255907395.cos.ap-shanghai.myqcloud.com"
+var TencentSecretKey = 
+var TencentSecretID = 
+var CosBucket =
 
 // PageSize分页的默认参数
 var PageSize = 20
