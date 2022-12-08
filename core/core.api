@@ -34,7 +34,7 @@ service core-api{
 	
 	//用户文件列表
 	@handler  UserFileLiset
-	get /user/file/list(UserFileListRequest) returns (UserfileLisetReply)
+	get /user/file/list(UserFileListRequest) returns (UserFileLisetReply)
 	
 	//用户文件名称修改
 	@handler UserFileNameUpdate
@@ -140,7 +140,7 @@ type UserFileListRequest {
 	Page int   `json:"page,optional"`
 	Size int   `json:"size,optional"`
 }
-type UserfileLisetReply {
+type UserFileLisetReply {
 	List  []*UserFile `json:"list"`
 	Count int64       `json:"count"`
 }

@@ -77,7 +77,7 @@ type UserFileListRequest struct {
 	Size int   `json:"size,optional"`
 }
 
-type UserfileLisetReply struct {
+type UserFileLisetReply struct {
 	List  []*UserFile `json:"list"`
 	Count int64       `json:"count"`
 }

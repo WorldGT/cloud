@@ -1,6 +1,8 @@
 package define
 
 import (
+	"os"
+
 	"github.com/golang-jwt/jwt/v4"
 )
 
@@ -20,9 +22,9 @@ var CodeLength = 6
 var CodeExpire = 300
 
 // TencentSecretKey 腾讯云对象存储
-var TencentSecretKey = 
-var TencentSecretID = 
-var CosBucket =
+var TencentSecretKey = os.Getenv("TencentSecretKey")
+var TencentSecretID = os.Getenv("TencentSecretID")
+var CosBucket = "https://1-1255907395.cos.ap-shanghai.myqcloud.com"
 
 // PageSize分页的默认参数
 var PageSize = 20
