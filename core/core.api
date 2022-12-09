@@ -63,8 +63,52 @@ service core-api{
 	//刷新Autorization
 	@handler RefreshAuthorization
 	post /refresh/authorization(RefreshAuthorizationRequest) returns (RefreshAuthorizationReply)
+	
+	//文件上传前基本信息处理
+	@handler  FileUploadPrepare
+	post /file/upload/prepare(FileUploadPrepareRequest) returns (FileUploadPrepareReply)
+	
+	//文件分片上传
+	@handler  FileUploadChunk
+	post /file/upload/chunk(FileUploadChunRequest) returns (FileUploadChunkReply)
+	
+	//文件分片完成上传
+	@handler  FileUploadChunkComplete
+	post /file/upload/chunk/Complete(FileUploadChunkCompleteRequest) returns (FileUploadChunkCompleteReply)
 }
 
+type FileUploadChunkCompleteRequest {
+	Key        string      `json:"key"`
+	UploadId   string      `json:"upload_id"`
+	CosObjects []CosObject `json:"cos_objects"`
+}
+
+type CosObject {
+	PartNumber int    `json:"part_number"`
+	Etag       string `json:"etag"`
+}
+
+type FileUploadChunkCompleteReply {}
+
+//---------------文件分片上传---------
+type FileUploadChunRequest{}
+type FileUploadChunkReply {
+	Etag string `json:"etag"` //MD5
+}
+
+//-----------文件上传前基本信息处理--------
+type FileUploadPrepareRequest {
+	Md5  string `json:"md5"`
+	Name string `json:"name"`
+	Ext  string `json:"ext"`
+}
+type FileUploadPrepareReply {
+	Identity string `json:"identity"`
+	UploadId string `json:"uploadId"`
+	Key      string `json:"key"`
+}
+
+//	-------刷新Autorization--------
 type RefreshAuthorizationRequest{}
 
 type RefreshAuthorizationReply {
